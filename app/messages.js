@@ -3,8 +3,13 @@ const router = express.Router();
 const fs = require('fs');
 
 router.get('/', (req, res) => {
+    const ObjectMassages = [];
     fs.readdir('./allMessages', (err, files) => {
-
+        files.map(file => {
+            const data = fs.readFileSync(`./allMessages/${file}`);
+            ObjectMassages.push(JSON.parse(data.toString()));
+        });
+        res.send(ObjectMassages.reverse())
     });
 });
 
