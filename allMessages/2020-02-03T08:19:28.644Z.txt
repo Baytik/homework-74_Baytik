@@ -1,4 +1,0 @@
-{
-  "message": "Final message",
-  "datetime": "2020-02-03T08:19:28.644Z"
-}

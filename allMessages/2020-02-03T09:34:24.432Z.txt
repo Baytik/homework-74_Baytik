@@ -1,0 +1,4 @@
+{
+  "message": "Some text",
+  "datetime": "2020-02-03T09:34:24.432Z"
+}

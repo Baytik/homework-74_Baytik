@@ -1,20 +1,5 @@
-/*
 const fs = require('fs');
-const messages = require('./app/messages');
 
-const date = new Date();
-const messageDate = date.toISOString();
+const data = fs.readFileSync('./allMessages/2020-02-03T08:17:57.169Z.txt');
 
-const fileName = `./allMessages/${messageDate}.txt`;
-
-
-
-const data = JSON.stringify(messages, null, 2);
-
-fs.writeFile(fileName, data, err => {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log('File was saved!')
-    }
-});*/
+console.log(data.toString());
