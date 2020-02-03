@@ -1,12 +1,28 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 
 router.get('/', (req, res) => {
     res.send('Hello');
 });
 
 router.post('/', (req, res) => {
-    res.send('Post');
+    const date = new Date();
+    const messageDate = date.toISOString();
+    const message = {
+        message: req.body.message,
+        datetime: messageDate
+    };
+    const fileName = `./allMessages/${messageDate}.txt`;
+    const data = JSON.stringify(message, null, 2);
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('File was saved!')
+        }
+    });
+    res.send(message);
 });
 
 module.exports = router;
