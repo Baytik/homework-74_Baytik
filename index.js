@@ -7,6 +7,4 @@ const port = 8000;
 app.use(express.json());
 app.use('/messages', messages);
 
-app.listen(port, () => {
-   console.log(`Server start ${port}`);
-});
+app.listen(port);
