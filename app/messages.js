@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
             const data = fs.readFileSync(`./allMessages/${file}`);
             ObjectMassages.push(JSON.parse(data.toString()));
         });
-        res.send(ObjectMassages.reverse())
+        const lastMessages = ObjectMassages.slice(-5);
+        res.send(lastMessages.reverse())
     });
 });
 
